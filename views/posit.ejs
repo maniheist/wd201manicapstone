@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="csrf-token" content="<%= csrfToken %>" />
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4; /* Adjusted background color for better readability */
+      }
+
+      .graph-box {
+        border: 1px solid #ccc;
+        padding: 20px; /* Increased padding for better aesthetics */
+        margin: 20px; /* Increased margin for better spacing */
+        border-radius: 10px; /* Added border-radius for rounded corners */
+      }
+
+      .chart-container {
+        display: flex;
+        border: 1px solid #ccc;
+        margin-left: 0;
+        overflow: hidden; /* Added overflow: hidden to contain flex items */
+      }
+
+      .bar {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        margin-right: 20px; /* Increased margin between bars */
+        background-color: #f1f1f1; /* Added background color for bars */
+        padding: 10px; /* Added padding for bars */
+        box-sizing: border-box;
+        transition: background-color 0.3s ease; /* Added smooth transition for better interaction */
+      }
+
+      .bar:hover {
+        background-color: #db3434; /* Change background color on hover */
+      }
+
+      .bar div {
+        width: 50px;
+        background-color: #db3434;
+        text-align: center;
+        color: white;
+        font-size: 14px;
+        padding: 10px; /* Adjusted padding for better aesthetics */
+        box-sizing: border-box;
+        transition: height 0.3s ease; /* Added smooth transition for better interaction */
+      }
+
+      .bar span {
+        margin-top: 10px;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="graph-box">
+      <p class="note text-center text-xl font-bold mb-4">
+        Note: Course vs Enroll Students Bar Graph. You Can Find The Number Of
+        Enrolled Students At The Top Of The Bar.
+      </p>
+      <div class="chart-container" id="chartContainer">
+        <% for (let i = 0; i < educss.length; i++) { %>
+        <div class="bar">
+          <% const barHeight = enrollments[i] * 10; %>
+          <div style="height: <%= barHeight %>px"><%= enrollments[i] %></div>
+          <span><%= educss[i] %></span>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>

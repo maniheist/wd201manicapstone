@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Include Tailwind CSS stylesheet -->
+    <meta name="csrf-token" content="<%= csrfToken %>" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-gray-100">
+    <div class="navbar bg-red-900 text-white p-4 mb-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <div class="flex items-center">
+          <div class="navbar-logo">
+            <img
+              src="https://i0.wp.com/www.easygenerator.com/wp-content/uploads/2021/03/01-a-browser-with-the-word-%E2%80%9CLMS%E2%80%9D.jpg?w=1500&ssl=1"
+              alt="Logo"
+              class="max-h-10"
+            />
+          </div>
+        </div>
+        <div class="flex space-x-8">
+          <a href="/show" class="text-white">Home</a>
+          <a href="/about" class="text-white">About</a>
+          <a href="/contact" class="text-white">Contact</a>
+          <a href="/mycoursestudent/<%=a%>" class="text-white">My Courses</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-center items-center h-screen">
+      <div>
+        <img
+          src="https://www.softedemy.com/wp-content/uploads/2023/02/Measuring-progress.jpg"
+          alt="progress"
+          class="w-60 h-auto"
+        />
+      </div>
+
+      <div class="w-1/2 bg-blue-200 h-10 relative">
+        <div class="absolute inset-0 bg-red-500" style="width: <%= p %>%"></div>
+        <div
+          class="absolute inset-0 flex items-center justify-center text-white font-bold"
+        >
+          <%= p %> %
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
